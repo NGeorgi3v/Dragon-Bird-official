@@ -1,18 +1,21 @@
-import { BackgroundComponent } from './components/background/background.component';
-import { GameComponent } from './components/game/game.component';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MaterializeModule } from 'angular2-materialize';
 
+import { GameComponent } from './components/game/game.component';
 import { AppComponent } from './app.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GameComponent,
-    BackgroundComponent
+    MenuComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MaterializeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

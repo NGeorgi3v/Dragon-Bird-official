@@ -11,7 +11,12 @@ export class GameComponent implements OnInit {
   HEIGHT = Math.max(document.documentElement.clientHeight, document.querySelector('body').offsetHeight || 0);
   canvas: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
-  currentState = States.initialized;
+  score: number;
+  bestScore: number;
+  state: States.initialized;
+  bgImage: HTMLImageElement;
+
+
   constructor(private elRef: ElementRef, private renderer: Renderer2, private ngZone: NgZone) {
     window.onresize = (e) => {
       ngZone.run(() => {
@@ -19,6 +24,8 @@ export class GameComponent implements OnInit {
         this.HEIGHT = window.innerHeight;
         this.renderer.setProperty(this.canvas, 'width', this.WIDTH);
         this.renderer.setProperty(this.canvas, 'height', this.HEIGHT);
+        this.ctx.clearRect(0, 0, this.WIDTH, this.HEIGHT);
+        this.ctx.drawImage(this.bgImage, 0, 0, this.WIDTH, this.HEIGHT);
       });
     };
   }
@@ -29,7 +36,11 @@ export class GameComponent implements OnInit {
     this.renderer.setProperty(this.canvas, 'height', this.HEIGHT);
     this.renderer.appendChild(this.elRef.nativeElement, this.canvas);
     this.ctx = this.canvas.getContext('2d');
+  }
 
+  afterLoad() {
+    this.bgImage = this.renderer.selectRootElement('#bg-img');
+    this.ctx.drawImage(this.bgImage, 0, 0, this.WIDTH, this.HEIGHT);
   }
 
 }
