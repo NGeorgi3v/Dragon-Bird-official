@@ -7,8 +7,15 @@ canvas{
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 1;
 }
 
 .sprite-img{
     display: none;
+}
+
+#menu{
+    position: relative;
+    z-index: 999999;
+    margin-top: 20%;
 }

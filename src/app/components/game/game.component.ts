@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, Renderer2, NgZone } from '@angular/core';
-import { States } from './states.enum';
+import { States } from '../../core/states.enum';
 
 @Component({
   selector: 'app-game',
@@ -13,7 +13,7 @@ export class GameComponent implements OnInit {
   ctx: CanvasRenderingContext2D;
   score: number;
   bestScore: number;
-  state: States.initialized;
+  state = States.initialized;
   bgImage: HTMLImageElement;
 
 
@@ -31,7 +31,7 @@ export class GameComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.canvas = this.renderer.createElement('canvas');
+    this.canvas = this.renderer.selectRootElement('#bg-canvas');
     this.renderer.setProperty(this.canvas, 'width', this.WIDTH);
     this.renderer.setProperty(this.canvas, 'height', this.HEIGHT);
     this.renderer.appendChild(this.elRef.nativeElement, this.canvas);
@@ -41,6 +41,10 @@ export class GameComponent implements OnInit {
   afterLoad() {
     this.bgImage = this.renderer.selectRootElement('#bg-img');
     this.ctx.drawImage(this.bgImage, 0, 0, this.WIDTH, this.HEIGHT);
+  }
+
+  onMenuChange(_state) {
+    this.state = _state;
   }
 
 }
