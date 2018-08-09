@@ -1,6 +1,5 @@
-<img (load)="afterLoad()"
-    src="assets/imgs/background_and_pipes/background.png"
-    class="sprite-img"
-    id="bg-img" />
+<img (load)="afterLoad()" src="assets/imgs/background_and_pipes/background.png" class="sprite-img" id="bg-img" />
 <canvas id="bg-canvas"></canvas>
+<app-player [gameState]="state" [bestScore]="bestScore"></app-player>
+<!-- <app-pipe [gameState]="state" ></app-pipe> -->
 <app-menu [gameState]="state" (change)="onMenuChange($event)"></app-menu>

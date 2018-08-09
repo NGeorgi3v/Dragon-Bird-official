@@ -1,21 +1,44 @@
-html, body, canvas{
-    padding: 0;
-    margin: 0;
+html,
+body,
+canvas {
+  padding: 0;
+  margin: 0;
 }
 
-canvas{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
-.sprite-img{
-    display: none;
+.sprite-img {
+  display: none;
 }
 
-#menu{
-    position: relative;
-    z-index: 999999;
-    margin-top: 20%;
+#menu,
+#score {
+  position: relative;
+  z-index: 999999;
+}
+
+#menu {
+  margin-top: 20%;
+}
+
+#score {
+  top: 20px;
+  margin-left: 90%;
+}
+
+#bg-canvas {
+  z-index: 1;
+}
+
+#player-canvas {
+  z-index: 3;
+}
+
+#pipe-canvas {
+  z-index: 2;
 }
